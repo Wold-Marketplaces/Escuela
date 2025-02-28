@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institucional - Escuela Primaria San Luis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --secondary-color: #1976D2;
+            --accent-color: #FFC107;
+            --light-color: #F5F5F5;
+            --dark-color: #333333;
+            --text-color: #424242;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-top {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 0;
+        }
+
+        .header-contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-text h1 {
+            color: var(--primary-color);
+            font-size: 2em;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: var(--secondary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .nav-menu li a:hover {
+            background: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .institutional-hero {
+            background: linear-gradient(rgba(33, 150, 243, 0.9), rgba(25, 118, 210, 0.9)),
+                        url('https://via.placeholder.com/1920x600') center/cover;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .institutional-hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 10px auto;
+        }
+
+        /* Mission Vision Values */
+        .mvv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .mvv-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .mvv-card i {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* History Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            right: -12px;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 20px;
+        }
+
+        .team-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .team-info p {
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 19px;
+            }
+
+            .timeline-item:nth-child(even)::after {
+                left: 19px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-contact">
+                    <span><i class="fas fa-phone"></i> (266) 4452000</span>
+                    <span><i class="fas fa-envelope"></i> contacto@escuelasanluis.edu.ar</span>
+                    <span><i class="fas fa-clock"></i> Lunes a Viernes: 8:00 - 17:00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="logo-container">
+                <img src="https://via.placeholder.com/80" alt="Logo Escuela">
+                <div class="logo-text">
+                    <h1>Escuela Primaria San Luis</h1>
+                    <p>Educación de Excelencia para el Futuro</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-container">
+            <div class="container">
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="institucional.html" style="background: var(--primary-color);">Institucional</a></li>
+                        <li><a href="academico.html">Académico</a></li>
+                        <li><a href="admisiones.html">Admisiones</a></li>
+                        <li><a href="noticias.html">Noticias</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="institutional-hero">
+        <div class="container">
+            <h2>Nuestra Historia y Valores</h2>
+            <p>Más de 50 años formando líderes del mañana</p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="mvv-section">
+                <div class="section-title">
+                    <h2>Misión, Visión y Valores</h2>
+                </div>
+                <div class="mvv-grid">
+                    <div class="mvv-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Misión</h3>
+                        <p>Formar estudiantes íntegros con excelencia académica y valores sólidos, preparados para los desafíos del futuro.</p>
+                    </div>
+                    <div class="mvv-card">
+                        <i class="fas fa-eye"></i>
+                        <h3>Visión</h3>
+                        <p>Ser reconocidos como una institución líder en educación primaria, innovadora y comprometida con el desarrollo integral.</p>
+                    </div>
+                    <div class="mvv-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Valores</h3>
+                        <p>Excelencia, Respeto, Responsabilidad, Innovación, Compromiso y Solidaridad.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="history-section">
+                <div class="section-title">
+                    <h2>Nuestra Historia</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>1970</h3>
+                            <p>Fundación de la Escuela Primaria San Luis</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>1985</h3>
+                            <p>Inauguración del nuevo edificio educativo</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2000</h3>
+                            <p>Implementación de programas tecnológicos innovadores</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2020</h3>
+                            <p>Renovación integral de instalaciones y equipamiento</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="team-section">
+                <div class="section-title">
+                    <h2>Equipo Directivo</h2>
+                </div>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="https://via.placeholder.com/300x300" alt="Director">
+                        <div class="team-info">
+                            <h3>Dr. Juan Pérez</h3>
+                            <p>Director General</p>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://via.placeholder.com/300x300" alt="Vicedirectora">
+                        <div class="team-info">
+                            <h3>Lic. María González</h3>
+                            <p>Vicedirectora Académica</p>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://via.placeholder.com/300x300" alt="Coordinador">
+                        <div class="team-info">
+                            <h3>Prof. Carlos Rodríguez</h3>
+                            <p>Coordinador de Estudios</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Sobre Nosotros</h3>
+                    <p>Somos una institución educativa comprometida con la formación integral de nuestros estudiantes.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="admisiones.html">Proceso de Admisión</a></li>
+                        <li><a href="calendario.html">Calendario Académico</a></li>
+                        <li><a href="noticias.html">Noticias y Eventos</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Universidad 1115, San Luis</p>
+                    <p><i class="fas fa-phone"></i> (266) 4452000</p>
+                    <p><i class="fas fa-envelope"></i> contacto@escuelasanluis.edu.ar</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Escuela Primaria San Luis. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+</qodoArtifact>
+

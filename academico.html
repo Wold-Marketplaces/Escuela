@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Académico - Escuela Primaria San Luis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --secondary-color: #1976D2;
+            --accent-color: #FFC107;
+            --success-color: #4CAF50;
+            --light-color: #F5F5F5;
+            --dark-color: #333333;
+            --text-color: #424242;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-top {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 0;
+        }
+
+        .header-contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-text h1 {
+            color: var(--primary-color);
+            font-size: 2em;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: var(--secondary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .nav-menu li a:hover {
+            background: var(--primary-color);
+        }
+
+        /* Academic Hero Section */
+        .academic-hero {
+            background: linear-gradient(rgba(33, 150, 243, 0.9), rgba(25, 118, 210, 0.9)),
+                        url('https://via.placeholder.com/1920x600') center/cover;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .academic-hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        /* Programs Grid */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .program-content {
+            padding: 20px;
+        }
+
+        .program-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Schedule Table */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            background: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .schedule-table th {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .schedule-table tr:hover {
+            background: #f5f5f5;
+        }
+
+        /* Academic Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Resources Section */
+        .resources-section {
+            background: white;
+            padding: 60px 0;
+            margin: 40px 0;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .resource-card {
+            background: var(--light-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-icon {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+            }
+
+            .header-contact {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .schedule-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-contact">
+                    <span><i class="fas fa-phone"></i> (266) 4452000</span>
+                    <span><i class="fas fa-envelope"></i> contacto@escuelasanluis.edu.ar</span>
+                    <span><i class="fas fa-clock"></i> Lunes a Viernes: 8:00 - 17:00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="logo-container">
+                <img src="https://via.placeholder.com/80" alt="Logo Escuela">
+                <div class="logo-text">
+                    <h1>Escuela Primaria San Luis</h1>
+                    <p>Educación de Excelencia para el Futuro</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-container">
+            <div class="container">
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="institucional.html">Institucional</a></li>
+                        <li><a href="academico.html" style="background: var(--primary-color);">Académico</a></li>
+                        <li><a href="admisiones.html">Admisiones</a></li>
+                        <li><a href="noticias.html">Noticias</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="academic-hero">
+        <div class="container">
+            <h2>Programa Académico</h2>
+            <p>Formación integral para el desarrollo de futuros líderes</p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="programs-section">
+                <div class="section-title">
+                    <h2>Nuestros Programas</h2>
+                    <p>Educación integral basada en competencias y valores</p>
+                </div>
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <img src="https://via.placeholder.com/400x200" alt="Programa Base" class="program-image">
+                        <div class="program-content">
+                            <h3>Programa Base</h3>
+                            <p>Currículo oficial adaptado con metodologías innovadoras y enfoque personalizado.</p>
+                            <ul>
+                                <li>Matemáticas</li>
+                                <li>Lengua y Literatura</li>
+                                <li>Ciencias Naturales</li>
+                                <li>Ciencias Sociales</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <img src="https://via.placeholder.com/400x200" alt="Programa Bilingüe" class="program-image">
+                        <div class="program-content">
+                            <h3>Programa Bilingüe</h3>
+                            <p>Inmersión en inglés con profesores nativos y certificaciones internacionales.</p>
+                            <ul>
+                                <li>Inglés Intensivo</li>
+                                <li>Conversación</li>
+                                <li>Cultura Internacional</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <img src="https://via.placeholder.com/400x200" alt="Actividades Complementarias" class="program-image">
+                        <div class="program-content">
+                            <h3>Actividades Complementarias</h3>
+                            <p>Desarrollo integral a través de actividades extracurriculares.</p>
+                            <ul>
+                                <li>Deportes</li>
+                                <li>Arte y Música</li>
+                                <li>Tecnología</li>
+                                <li>Club de Ciencias</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="schedule-section">
+                <div class="section-title">
+                    <h2>Horario Escolar</h2>
+                </div>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Hora</th>
+                            <th>Actividad</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>8:00 - 8:45</td>
+                            <td>Primera Hora</td>
+                            <td>Materias Principales</td>
+                        </tr>
+                        <tr>
+                            <td>8:45 - 9:30</td>
+                            <td>Segunda Hora</td>
+                            <td>Materias Principales</td>
+                        </tr>
+                        <tr>
+                            <td>9:30 - 10:00</td>
+                            <td>Recreo</td>
+                            <td>Descanso y Merienda</td>
+                        </tr>
+                        <tr>
+                            <td>10:00 - 12:30</td>
+                            <td>Bloque Principal</td>
+                            <td>Actividades Académicas</td>
+                        </tr>
+                        <tr>
+                            <td>12:30 - 14:00</td>
+                            <td>Almuerzo</td>
+                            <td>Comedor Escolar</td>
+                        </tr>
+                        <tr>
+                            <td>14:00 - 16:30</td>
+                            <td>Actividades Complementarias</td>
+                            <td>Talleres y Deportes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="features-section">
+                <div class="section-title">
+                    <h2>Características Académicas</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-users feature-icon"></i>
+                        <h3>Grupos Reducidos</h3>
+                        <p>Máximo 20 alumnos por clase para atención personalizada</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-laptop feature-icon"></i>
+                        <h3>Tecnología Educativa</h3>
+                        <p>Integración de herramientas digitales en el aprendizaje</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line feature-icon"></i>
+                        <h3>Seguimiento Continuo</h3>
+                        <p>Evaluación y retroalimentación constante</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resources-section">
+                <div class="section-title">
+                    <h2>Recursos Educativos</h2>
+                </div>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <i class="fas fa-book resource-icon"></i>
+                        <h3>Biblioteca</h3>
+                        <p>Acceso a material didáctico y literatura</p>
+                    </div>
+                    <div class="resource-card">
+                        <i class="fas fa-desktop resource-icon"></i>
+                        <h3>Sala de Computación</h3>
+                        <p>Equipamiento tecnológico actualizado</p>
+                    </div>
+                    <div class="resource-card">
+                        <i class="fas fa-flask resource-icon"></i>
+                        <h3>Laboratorio</h3>
+                        <p>Espacio para experimentación científica</p>
+                    </div>
+                    <div class="resource-card">
+                        <i class="fas fa-palette resource-icon"></i>
+                        <h3>Sala de Arte</h3>
+                        <p>Espacio para expresión artística</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Sobre Nosotros</h3>
+                    <p>Somos una institución educativa comprometida con la formación integral de nuestros estudiantes.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="admisiones.html">Proceso de Admisión</a></li>
+                        <li><a href="calendario.html">Calendario Académico</a></li>
+                        <li><a href="noticias.html">Noticias y Eventos</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Universidad 1115, San Luis</p>
+                    <p><i class="fas fa-phone"></i> (266) 4452000</p>
+                    <p><i class="fas fa-envelope"></i> contacto@escuelasanluis.edu.ar</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Escuela Primaria San Luis. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+</qodoArtifact>
+

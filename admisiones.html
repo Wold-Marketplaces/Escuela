@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admisiones - Escuela Primaria San Luis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --secondary-color: #1976D2;
+            --accent-color: #FFC107;
+            --success-color: #4CAF50;
+            --light-color: #F5F5F5;
+            --dark-color: #333333;
+            --text-color: #424242;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-top {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 0;
+        }
+
+        .header-contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: var(--secondary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .nav-menu li a:hover {
+            background: var(--primary-color);
+        }
+
+        /* Admissions Hero Section */
+        .admissions-hero {
+            background: linear-gradient(rgba(33, 150, 243, 0.9), rgba(25, 118, 210, 0.9)),
+                        url('https://via.placeholder.com/1920x600') center/cover;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .admissions-hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0;
+            position: relative;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            min-width: 200px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+
+        .step::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+            z-index: -1;
+        }
+
+        .step:last-child::after {
+            display: none;
+        }
+
+        /* Requirements Section */
+        .requirements {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+
+        .requirements h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .requirements ul {
+            list-style: none;
+        }
+
+        .requirements li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .requirements li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--success-color);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Application Form */
+        .application-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: var(--secondary-color);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 40px 0;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: var(--light-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a {
+        color: white;
+        font-size: 1.5em;
+        transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+        color: var(--accent-color);
+    }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+            }
+
+            .header-contact {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .process-steps {
+                flex-direction: column;
+            }
+
+            .step::after {
+                display: none;
+            }
+
+            .step {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-contact">
+                    <span><i class="fas fa-phone"></i> (266) 4452000</span>
+                    <span><i class="fas fa-envelope"></i> contacto@escuelasanluis.edu.ar</span>
+                    <span><i class="fas fa-clock"></i> Lunes a Viernes: 8:00 - 17:00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="logo-container">
+                <img src="https://via.placeholder.com/80" alt="Logo Escuela">
+                <div class="logo-text">
+                    <h1>Escuela Primaria San Luis</h1>
+                    <p>Educación de Excelencia para el Futuro</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-container">
+            <div class="container">
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="institucional.html">Institucional</a></li>
+                        <li><a href="academico.html">Académico</a></li>
+                        <li><a href="admisiones.html" style="background: var(--primary-color);">Admisiones</a></li>
+                        <li><a href="noticias.html">Noticias</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="admissions-hero">
+        <div class="container">
+            <h2>Proceso de Admisión 2024</h2>
+            <p>Comienza el camino hacia una educación de excelencia</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Process Steps -->
+        <section class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Solicitud</h3>
+                <p>Complete el formulario de admisión</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Entrevista</h3>
+                <p>Reunión con el equipo directivo</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Evaluación</h3>
+                <p>Proceso de diagnóstico</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Admisión</h3>
+                <p>Confirmación y matrícula</p>
+            </div>
+        </section>
+
+        <!-- Requirements Section -->
+        <section class="requirements">
+            <h3>Requisitos de Admisión</h3>
+            <ul>
+                <li>Documento Nacional de Identidad del estudiante</li>
+                <li>Certificado de nacimiento</li>
+                <li>Libreta de calificaciones del año anterior</li>
+                <li>Certificado de buena conducta</li>
+                <li>Certificado médico actualizado</li>
+                <li>Fotos carnet actualizadas</li>
+                <li>Documentación de los padres o tutores</li>
+            </ul>
+        </section>
+
+        <!-- Application Form -->
+        <section class="application-form">
+            <h3>Formulario de Solicitud</h3>
+            <form id="admissionForm">
+                <div class="form-group">
+                    <label for="studentName">Nombre del Estudiante</label>
+                    <input type="text" id="studentName" name="studentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="birthDate">Fecha de Nacimiento</label>
+                    <input type="date" id="birthDate" name="birthDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="grade">Grado al que Aspira</label>
+                    <select id="grade" name="grade" required>
+                        <option value="">Seleccione un grado</option>
+                        <option value="1">Primer Grado</option>
+                        <option value="2">Segundo Grado</option>
+                        <option value="3">Tercer Grado</option>
+                        <option value="4">Cuarto Grado</option>
+                        <option value="5">Quinto Grado</option>
+                        <option value="6">Sexto Grado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="parentName">Nombre del Padre/Madre/Tutor</label>
+                    <input type="text" id="parentName" name="parentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje Adicional</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Solicitud</button>
+            </form>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h3>Preguntas Frecuentes</h3>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Cuándo comienza el proceso de admisión?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    El proceso de admisión para el ciclo escolar 2024 comienza en septiembre de 2023.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Cuál es el costo de la matrícula?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    La información sobre costos se proporciona durante la entrevista personal.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Ofrecen becas escolares?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Sí, contamos con un programa de becas basado en mérito académico y necesidad económica.
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="contact-info">
+            <h3>¿Necesitas más información?</h3>
+            <p><i class="fas fa-phone"></i> (266) 4452000</p>
+            <p><i class="fas fa-envelope"></i> admisiones@escuelasanluis.edu.ar</p>
+            <p><i class="fas fa-clock"></i> Horario de atención: Lunes a Viernes de 8:00 a 17:00</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Sobre Nosotros</h3>
+                    <p>Somos una institución educativa comprometida con la formación integral de nuestros estudiantes.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="admisiones.html">Proceso de Admisión</a></li>
+                        <li><a href="calendario.html">Calendario Académico</a></li>
+                        <li><a href="noticias.html">Noticias y Eventos</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Universidad 1115, San Luis</p>
+                    <p><i class="fas fa-phone"></i> (266) 4452000</p>
+                    <p><i class="fas fa-envelope"></i> contacto@escuelasanluis.edu.ar</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Escuela Primaria San Luis. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Form Submission
+        document.getElementById('admissionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Formulario enviado con éxito. Nos pondremos en contacto pronto.');
+        });
+    </script>
+</body>
+</html>
